@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# .NET
+bin/
+obj/
+
+# VS / VSCode
+.vs/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+
+# Logs
+*.log

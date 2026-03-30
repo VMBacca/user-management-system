@@ -1,0 +1,15 @@
+{
+  "name": "user-management-system",
+  "version": "1.0.0",
+  "description": "E2E tests with Cypress for User Management API",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^15.13.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
+  }
+}
