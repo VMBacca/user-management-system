@@ -42,6 +42,11 @@ jobs:
       - name: Instalar EF Tools
         run: dotnet tool install --global dotnet-ef
 
+      - name: Run migrations
+        run: dotnet ef database update --project ./backend/UserManagement.API
+        env:
+          CONNECTION_STRING: Host=localhost;Port=5432;Database=usermanagement;Username=postgres;Password=postgres
+
       - name: Atualizar banco (migrations)
         run: dotnet ef database update --project ./backend/UserManagement.API
 
