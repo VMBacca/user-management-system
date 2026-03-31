@@ -61,9 +61,9 @@ jobs:
           done
 
       - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
+  uses: actions/setup-node@v4
+  with:
+    node-version: 18.18.0
 
       # ✅ AGORA NO DIRETÓRIO CORRETO
       - name: Instalar dependências Cypress
