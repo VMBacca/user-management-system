@@ -47,11 +47,9 @@ jobs:
         env:
           CONNECTION_STRING: Host=localhost;Port=5432;Database=usermanagement;Username=postgres;Password=postgres
 
-      # 🚀 SUBIR API NA PORTA CORRETA
       - name: Rodar API
         run: dotnet run --project ./backend/UserManagement.API --urls=http://localhost:5205 &
 
-      # 🔥 ESPERA INTELIGENTE (melhor que sleep)
       - name: Esperar API responder
         run: |
           for i in {1..20}; do
@@ -63,9 +61,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-        node-version: 18.18.0
+          node-version: 18.18.0
 
-      # ✅ AGORA NO DIRETÓRIO CORRETO
       - name: Instalar dependências Cypress
         run: npm install
         working-directory: ./cypress
