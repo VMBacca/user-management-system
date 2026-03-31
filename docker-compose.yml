@@ -1,17 +1,6 @@
 version: "3.8"
 
 services:
-  api:
-    build:
-      context: ./backend/UserManagement.API
-    container_name: usermanagement_api
-    ports:
-      - "5205:8080"
-    depends_on:
-      - postgres
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-
   postgres:
     image: postgres:16
     container_name: usermanagement_postgres
@@ -21,4 +10,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

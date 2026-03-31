@@ -1,96 +1,197 @@
 # User Management System
 
-A user management API with automated end-to-end testing.
+A complete user management API with automated end-to-end testing and a fully reproducible environment using Docker.
 
-## 🚀 Technologies
+---
+
+## Demo
+
+### 🐳 Docker Setup
+
+![Docker](assets/docker.gif)
+
+### 🧪 Running Tests
+
+![Tests](assets/cypress.gif)
+
+---
+
+## Overview
+
+This project provides a RESTful API for managing users, including full CRUD operations, automated database migrations, and end-to-end testing.
+
+It is designed to be **easy to run on any machine** with minimal setup.
+
+---
+
+## Technologies
 
 - .NET 8
 - PostgreSQL
-- Docker
-- Cypress
-- Faker
+- Docker & Docker Compose
+- Cypress (E2E testing)
+- Faker (test data generation)
+- Entity Framework Core
 - GitHub Actions (CI/CD)
 
 ---
 
-## 📦 Features
+## Features
 
 - Create user
 - Get users
 - Update user
 - Delete user
+- Automatic database migrations
+- Fully automated tests
 
 ---
 
-## 🧪 Testing
+## Running the Project
 
-End-to-end tests using Cypress covering:
+### 1️⃣ Clone the repository
 
-- Full CRUD flow
-- API response validation
-- Dynamic data generation with Faker
+```bash
+git clone https://github.com/VMBacca/user-management-system.git
+cd user-management-system
+```
 
 ---
 
-## ⚙️ Running the project locally
-
-### 1. Start database
+### 2️⃣ Start the database (Docker)
 
 ```bash
 docker-compose up -d
 ```
 
-### 2. Run API
+This will:
+
+- Start PostgreSQL
+- Expose it on port `5432`
+- Automatically create the database
+
+---
+
+### 3️⃣ Run the API
 
 ```bash
 cd backend/UserManagement.API
 dotnet run
 ```
 
-Swagger available at:
+The API will be available at:
 
-```bash
+```
+http://localhost:5205
+```
+
+Swagger UI:
+
+```
 http://localhost:5205/swagger
 ```
 
-### 3. Run tests
+---
+
+## Running Tests
+
+### Install dependencies
 
 ```bash
 npm install
-npm run cy:run
 ```
 
-or interactive mode:
+---
+
+### Run tests (headless)
 
 ```bash
-npm run cy:open
+npx cypress run
 ```
 
 ---
 
-## 🔄 CI/CD
+### Open Cypress UI (interactive)
 
-Automated pipeline using GitHub Actions:
-
-- Build the application
-- Run database migrations
-- Execute Cypress tests
+```bash
+npx cypress open
+```
 
 ---
 
-## 🎯 Purpose
+## Test Coverage
 
-This project was created to practice:
+The Cypress tests cover:
+
+- User creation
+- User retrieval
+- User update
+- User deletion
+- API response validation
+- Dynamic test data using Faker
+
+---
+
+## Key Highlights
+
+- ✅ Fully reproducible environment with Docker
+- ✅ Automatic database migrations on startup
+- ✅ No manual setup required
+- ✅ Clean and simple API design
+- ✅ End-to-end testing included
+
+---
+
+## CI/CD
+
+The project includes a GitHub Actions pipeline that:
+
+- Builds the application
+- Starts the database
+- Runs migrations
+- Executes Cypress tests
+
+---
+
+## Project Structure
+
+```
+backend/
+  └── UserManagement.API
+
+cypress/
+  ├── e2e/
+  └── support/
+
+docker-compose.yml
+```
+
+---
+
+## Purpose
+
+This project was built to practice and demonstrate:
 
 - Backend development with .NET
-- Test automation (QA)
+- Test automation (QA mindset)
+- API design
+- Docker-based environments
 - Continuous Integration
-- Clean architecture and best practices
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-Vinicius Bacca
+**Vinicius Bacca**
 
 ---
+
+## Final Notes
+
+This project is designed to be cloned and run without additional configuration.
+
+If you encounter any issues, ensure:
+
+- Docker is running
+- Port `5432` is available
+- Port `5205` is available
