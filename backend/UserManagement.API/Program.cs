@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql("Host=localhost;Port=5433;Database=usermanagement;Username=postgres;Password=postgres"));
+    options.UseNpgsql(connectionString));
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
