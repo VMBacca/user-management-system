@@ -47,22 +47,29 @@ jobs:
         env:
           CONNECTION_STRING: Host=localhost;Port=5432;Database=usermanagement;Username=postgres;Password=postgres
 
-      - name: Atualizar banco (migrations)
-        run: dotnet ef database update --project ./backend/UserManagement.API
-
+      # 🚀 SUBIR API NA PORTA CORRETA
       - name: Rodar API
-        run: dotnet run --project ./backend/UserManagement.API &
+        run: dotnet run --project ./backend/UserManagement.API --urls=http://localhost:5205 &
 
-      - name: Esperar API subir
-        run: sleep 10
+      # 🔥 ESPERA INTELIGENTE (melhor que sleep)
+      - name: Esperar API responder
+        run: |
+          for i in {1..20}; do
+            curl -s http://localhost:5205/swagger > /dev/null && break
+            echo "Aguardando API..."
+            sleep 3
+          done
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
 
-      - name: Instalar dependências
+      # ✅ AGORA NO DIRETÓRIO CORRETO
+      - name: Instalar dependências Cypress
         run: npm install
+        working-directory: ./cypress
 
       - name: Rodar Cypress
         run: npm run cy:run
+        working-directory: ./cypress
