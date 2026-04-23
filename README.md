@@ -47,6 +47,25 @@ It is designed to be **easy to run on any machine** with minimal setup.
 
 ---
 
+## Architecture
+
+- ASP.NET Core Web API
+- Entity Framework Core for data access
+- PostgreSQL as relational database
+- Cypress for E2E and API testing
+- Docker for environment reproducibility
+- GitHub Actions for CI/CD
+
+---
+
+## Design Decisions
+
+- Used EF Core migrations for automatic schema management
+- Adopted Docker to ensure consistent environments
+- Implemented E2E tests to validate full system behavior
+
+---
+
 ## Running the Project
 
 ### 1️⃣ Clone the repository
